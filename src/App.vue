@@ -3,6 +3,7 @@
   import Breadcrumbs from './components/Breadcrumbs.vue';
   import Footer from './components/Footer.vue';
   import Sidebar from './components/Sidebar.vue';
+  import IconClose from './components/icons/IconClose.vue';
 
   export default {
     data() {
@@ -26,7 +27,8 @@
       Header,
       Footer,
       Breadcrumbs,
-      Sidebar
+      Sidebar,
+      IconClose
     }
   }
 </script>
@@ -53,12 +55,16 @@
 
               <div class="selected-filter">
                 <span class="selected-filter__text">Цена: от 321 до  10 203</span>
-                <a href="#" @click.prevent class="selected-filter__remove"></a>
+                <a href="#" @click.prevent class="selected-filter__remove">
+                  <IconClose />
+                </a>
               </div>
 
               <div class="selected-filter">
                 <span class="selected-filter__text">Легковая техника</span>
-                <a href="#" @click.prevent class="selected-filter__remove"></a>
+                <a href="#" @click.prevent class="selected-filter__remove">
+                  <IconClose />
+                </a>
               </div>
 
             </div>

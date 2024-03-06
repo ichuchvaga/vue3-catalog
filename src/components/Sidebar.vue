@@ -121,3 +121,12 @@ export default {
   </div>
 </div>
 </template>
+
+<style lang="scss">
+.sidebar {
+  width: 240px;
+  background-color: #fff;
+  border-radius: 16px;
+  flex-shrink: 0;
+}
+</style>
