@@ -1,0 +1,75 @@
+[{
+  "name": "Производитель",
+  "active": "Advanced Modeling",
+  "items": [
+    {
+      "title": "AVD",
+      "count": "124"
+    },
+    {
+      "title": "Advanced Modeling",
+      "count": "67"
+    },
+    {
+      "title": "Start Scale Models (SSM)",
+      "count": "123"
+    },
+    {
+      "title": "Edmon Studia",
+      "count": "423"
+    },
+    {
+      "title": "Modelcollect",
+      "count": "654"
+    },
+    {
+      "title": "ModelGun",
+      "count": "23"
+    },
+    {
+      "title": "Восточный Экспресс",
+      "count": "443"
+    } ,
+    {
+      "title": "Advanced Modeling",
+      "count": "224"
+    } 
+  ]
+},{
+  "name": "Масштаб",
+  "active": "1:6",
+  "items": [
+    {
+      "title": "1:24",
+      "count": "124"
+    },
+    {
+      "title": "1:6",
+      "count": "67"
+    },
+    {
+      "title": "1:12",
+      "count": "123"
+    },
+    {
+      "title": "1:9",
+      "count": "423"
+    },
+    {
+      "title": "1:32",
+      "count": "654"
+    },
+    {
+      "title": "1:35",
+      "count": "23"
+    },
+    {
+      "title": "1:43",
+      "count": "443"
+    } ,
+    {
+      "title": "1:16",
+      "count": "224"
+    } 
+  ]
+}]

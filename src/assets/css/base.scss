@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans+Caption:wght@700&family=Roboto:wght@400;500&display=swap');
+
+/* "PT Sans Caption", sans-serif; */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  font-weight: normal;
+}
+
+body {
+  min-height: 100vh;
+  color: #000;
+  background: #fafafa;
+  line-height: 1.4285;
+  font-family:
+    Roboto,
+    'Helvetica Neue',
+    sans-serif;
+  font-size: 16px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+  max-width: 1472px;
+  padding-left: 16px;
+  padding-right: 16px;
+  margin: 0 auto;
+}
