@@ -5,11 +5,13 @@
   import Footer from './components/Footer.vue';
   import Sidebar from './components/Sidebar.vue';
   import SelectedFilters from './components/SelectedFilters.vue';
-  import Sorting from './components/Sorting.vue';  
+  import Sorting from './components/Sorting.vue';
+  import Product from './components/Product.vue';
 
   // import data
   import brands from './data/brands.js';
   import scales from './data/scales.js';
+  import products from './data/products.json';
 
   export default {
     data() {
@@ -23,6 +25,7 @@
         ],
         brands: brands,
         scales: scales,
+        products: products
       }
     },
     mounted() {
@@ -37,7 +40,8 @@
       Breadcrumbs,
       Sidebar,
       SelectedFilters,
-      Sorting
+      Sorting,
+      Product
     }
   }
 </script>
@@ -62,6 +66,11 @@
           <Sorting />
 
           <!-- products -->
+          <div class="products-grid">
+            <div class="products-grid__inner">
+              <Product v-for="item, key in products" :key="item.id" :data="item" />
+            </div>
+          </div>
           <!-- .products -->
 
           
