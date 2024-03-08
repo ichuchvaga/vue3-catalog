@@ -105,7 +105,7 @@ export default {
 
     <!-- reset -->
     <div class="filter-reset">
-      <button type="button" class="btn filter-reset__btn">Сбросить</button>
+      <button type="button" class="btn btn--outline btn--sm filter-reset__btn">Сбросить</button>
     </div>
     <!-- .reset -->
 
@@ -128,5 +128,12 @@ export default {
   background-color: #fff;
   border-radius: 16px;
   flex-shrink: 0;
+  padding: 16px 16px 16px;
+  
+  .filter-reset {
+    .btn {
+      width: 100%;
+    }    
+  }
 }
 </style>

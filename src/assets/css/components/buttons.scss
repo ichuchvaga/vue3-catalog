@@ -1,0 +1,155 @@
+.btn {
+  display: inline-block;
+	vertical-align: baseline;
+	font-family: Roboto, sans-serif;
+  font-size: 16px;
+	line-height: 24px;
+	font-weight: 500;
+  text-decoration: none;
+	text-align: center;
+  text-transform: none;
+	box-shadow: none;
+	outline: none;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 17px 12px;
+	color: #fff;
+	background-color: #279FB9;
+	transition: background-color 0.25s ease, color 0.25s ease, border-color .25s ease;
+  cursor: pointer;
+
+  &--lg {
+    padding: 14px 25px;
+    border-radius: 13px;
+  }
+
+  &--md {
+    font-size: 14px;
+    line-height: 20px;
+    padding: 10px 17px;
+    border-radius: 10px;
+  }
+
+  &--sm {
+    font-size: 14px;
+    line-height: 20px;
+    padding: 8px 13px;
+    border-radius: 9px;
+  }
+
+  &--xs {
+    font-size: 14px;
+    line-height: 20px;
+    padding: 6px 13px;
+    border-radius: 8px;
+  }
+
+  &--xxs {
+    font-size: 12px;
+    line-height: 16px;
+    padding: 4px 9px;
+    border-radius: 6px;
+  }
+
+  &:hover {
+    background-color: #3DBBD6;
+    text-decoration: none;
+  }
+
+  &:active {
+    background-color: #1E7B8F;
+  }
+
+  &.disabled,
+  &:disabled {
+    color: #BDBDBD;
+    background-color: #EDEDED;
+    cursor: default;
+
+    &:hover,
+    &:active {
+      color: #BDBDBD;
+    }
+  }
+
+  &--accent {
+    background-color: #FFC020;
+    color: #333333;
+
+    &:hover {
+      background-color: #FFCF53;
+      text-decoration: none;
+    }
+  
+    &:active {
+      background-color: #ECAA00;
+    }
+  
+    &.disabled,
+    &:disabled {
+      color: #BDBDBD;
+      background-color: #EDEDED;
+      cursor: default;
+  
+      &:hover,
+      &:active {
+        color: #BDBDBD;
+      }
+    }
+  }
+
+  &--outline {
+    color: #333;
+    background-color: #fff;
+    border: 2px solid #BDBDBD;
+
+    &:hover {
+      background-color: #fff;
+      color: #333;
+      border-color: #279FB9;
+      text-decoration: none;
+    }
+  
+    &:active {
+      color: #1A1A1A;
+      background-color: #fff;
+      border-color: #1E7B8F;
+    }
+  
+    &.disabled,
+    &:disabled {
+      color: #E0E0E0;
+      background-color: #EDEDED;
+      border-color: #E0E0E0;
+      cursor: default;
+  
+      &:hover,
+      &:active {
+        color: #BDBDBD;
+      }
+    }
+
+    padding: 10px 15px;
+
+    &.btn--lg {
+      padding: 12px 23px;
+    }
+  
+    &.btn--md {
+      padding: 8px 15px;
+    }
+  
+    &.btn--sm {
+      padding: 6px 11px;
+    }
+  
+    &.btn--xs {
+      padding: 4px 11px;
+    }
+  
+    &.btn--xxs {
+      padding: 2px 5px;
+    }
+    
+  }
+}
