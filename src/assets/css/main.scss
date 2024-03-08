@@ -1,6 +1,7 @@
 @import './base.scss';
 @import './typography.scss';
 @import './components/selected-filters.scss';
+@import "./components/chips.scss";
 @import "./components/buttons.scss";
 
 .page {
@@ -33,4 +34,23 @@
 .main {
   width: calc(100% - 240px);
   padding-left: 32px;
+}
+
+.relinking {
+  margin-top: 64px;
+
+  &__title {
+    font-size: 24px;
+    line-height: 32px;
+    font-family: 'PT Sans Caption';
+    font-weight: 700;
+    margin-bottom: 15px;
+  }
+
+  &__group {
+    margin-top: 25px;
+    &:first-child {
+      margin-top: 0;
+    }
+  }
 }

@@ -1,10 +1,15 @@
 <script>
+  // import components
   import Header from './components/Header.vue';
   import Breadcrumbs from './components/Breadcrumbs.vue';
   import Footer from './components/Footer.vue';
   import Sidebar from './components/Sidebar.vue';
   import SelectedFilters from './components/SelectedFilters.vue';
   import Sorting from './components/Sorting.vue';  
+
+  // import data
+  import brands from './data/brands.js';
+  import scales from './data/scales.js';
 
   export default {
     data() {
@@ -15,7 +20,9 @@
           "Легковые",
           "Tamiya",
           "Porsche 959"
-        ]
+        ],
+        brands: brands,
+        scales: scales,
       }
     },
     mounted() {
@@ -56,6 +63,38 @@
 
           <!-- products -->
           <!-- .products -->
+
+          
+          <!-- relinking -->
+          <div class="relinking">
+            
+            <!-- brands -->
+            <div class="relinking__group">
+              <div class="relinking__title">Производители по запросу Автомобили и мотоциклы</div>
+              <div class="relinking__content">
+                <div class="chips chips--secondary">
+                  <div class="chips__inner">
+                    <a href="#" class="chips__item" v-for="item in brands" @click.prevent>{{ item }}</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- brands -->
+
+            <!-- scales -->
+            <div class="relinking__group">
+              <div class="relinking__title">Масштабы по запросу Автомобили и мотоциклы</div>
+              <div class="relinking__content">
+                <div class="chips chips--secondary">
+                  <div class="chips__inner">
+                    <a href="#" class="chips__item" v-for="item in scales" @click.prevent>{{ item }}</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- scales -->
+          </div>
+          <!-- relinking -->
 
         </div>
       </div>

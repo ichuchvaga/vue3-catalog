@@ -1,0 +1,64 @@
+.chips {
+  &__inner {
+    margin: 0 -4px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  
+  &__item {
+    margin: 0 4px 8px;
+    display: block;
+    text-decoration: none;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 16px;
+    font-size: 14px;
+    line-height: 20px;
+    padding: 5px 12px 3px;
+    transition: all .25s ease;
+  }
+
+  &--primary {
+    .chips {
+      &__item {
+        color: #279FB9;
+        border-color: #279FB9;
+
+        &:hover {
+          color: #3DBBD6;
+          border-color: #3DBBD6;
+        }
+
+        &:active,
+        &.active {
+          color: #fff;
+          border-color: #279FB9;
+          background-color: #279FB9;
+        }
+      }
+    }
+  }
+
+  &--secondary {
+    .chips {
+      &__item {
+        color: #757575;
+        border-color: #757575;
+
+        &:hover {
+          color: #9E9E9E;
+          border-color: #9E9E9E;
+        }
+        
+        &:active,
+        &.active {
+          color: #fff;
+          border-color: #757575;
+          background-color: #757575;
+        }
+      }
+    }
+  }
+}
