@@ -1,6 +1,7 @@
 [{
   "name": "Производитель",
   "active": "Advanced Modeling",
+  "inputName": "brand[]",
   "items": [
     {
       "title": "AVD",
@@ -38,6 +39,7 @@
 },{
   "name": "Масштаб",
   "active": "1:6",
+  "inputName": "scale[]",
   "items": [
     {
       "title": "1:24",

@@ -1,9 +1,14 @@
 @import './base.scss';
 @import './typography.scss';
+@import "./components/checkbox.scss";
+@import "./components/vue-multiselect.scss";
 @import './components/selected-filters.scss';
 @import "./components/chips.scss";
 @import "./components/buttons.scss";
 @import "./components/product.scss";
+@import "./components/dropdown.scss";
+@import "./components/vue-simple-range-slider.scss";
+@import "./components/range.scss";
 
 .page {
   padding: 32px 0 0;
@@ -12,6 +17,7 @@
 .page-heading {
   display: flex;
   align-items: baseline;
+  margin-bottom: 32px;
 
   h1 {
     margin: 0;

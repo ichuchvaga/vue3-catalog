@@ -1,0 +1,135 @@
+.checkbox {
+  label {
+    display: block;
+    margin: 0;
+    padding: 0;
+    font-weight: 400;
+  }
+
+  &__content {
+    display: block;
+    position: relative;
+    padding-left: 30px;
+  }
+
+  &__icon {
+    display: block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #E0E0E0;
+    background-color: #fff;
+    border-radius: 4px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all .25s ease;
+
+    svg {
+      opacity: 0;
+      display: block;
+      width: 16px;
+      height: 16px;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      transition: opacity .25s ease;
+      stroke: #fff;
+    }
+  }
+
+  label:hover {
+    .checkbox__icon {
+      border-color: #333333;
+    }
+  }
+
+  input {
+    display: none;
+
+    &:checked {
+      & + .checkbox__content {
+        .checkbox__icon {
+          background-color: #279FB9;
+          border-color: #279FB9;
+
+          svg {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+
+  label:hover input:checked {
+    & + .checkbox__content {
+      .checkbox__icon {
+        background-color: #1E7B8F;
+        border-color: #1E7B8F;
+      }
+    }
+  }
+
+  &.error {
+    .checkbox {
+      &__icon {
+        border-color: #CB5757;
+        background-color: #FAEEEE;
+      }
+    }
+
+    input:checked {
+      & + .checkbox__content {
+        .checkbox__icon {
+          background-color: #CB5757;
+          border-color: #CB5757;
+        }
+      }
+    }
+
+    label:hover input:checked {
+      & + .checkbox__content {
+        .checkbox__icon {
+          background-color: #CB5757;
+          border-color: #CB5757;
+        }
+      }
+    }
+  }
+
+  input:disabled {
+    & + .checkbox__content {
+      color: #BDBDBD;
+
+      .checkbox__icon {
+        background-color: #F5F5F5;
+        border-color: #F5F5F5;
+
+        svg {
+          stroke: #fff;
+        }
+      }
+    }
+
+    &:checked & + .checkbox__content {
+      color: #BDBDBD;
+
+      .checkbox__icon {
+        background-color: #F5F5F5;
+        border-color: #F5F5F5;
+
+        svg {
+          stroke: #BDBDBD;
+        }
+      }
+    }
+  }
+
+  label:hover input:disabled:checked {
+    & + .checkbox__content {
+      .checkbox__icon {
+        background-color: #F5F5F5;
+        border-color: #F5F5F5;
+      }
+    }
+  }
+}

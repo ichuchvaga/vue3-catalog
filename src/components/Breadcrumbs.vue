@@ -21,6 +21,7 @@ export default {
 .breadcrumbs {
   font-size: 14px;
   line-height: 20px;
+  margin-bottom: 23px;
 
   &__list {
     display: flex;

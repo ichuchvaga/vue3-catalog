@@ -3,7 +3,7 @@
   import Header from './components/Header.vue';
   import Breadcrumbs from './components/Breadcrumbs.vue';
   import Footer from './components/Footer.vue';
-  import Sidebar from './components/Sidebar.vue';
+  import Filter from './components/Filter.vue';
   import SelectedFilters from './components/SelectedFilters.vue';
   import Sorting from './components/Sorting.vue';
   import Product from './components/Product.vue';
@@ -38,7 +38,7 @@
       Header,
       Footer,
       Breadcrumbs,
-      Sidebar,
+      Filter,
       SelectedFilters,
       Sorting,
       Product
@@ -59,7 +59,7 @@
       </div>
 
       <div class="base-layout">
-        <Sidebar />
+        <Filter />
 
         <div class="main">
           <SelectedFilters />          
@@ -68,7 +68,7 @@
           <!-- products -->
           <div class="products-grid">
             <div class="products-grid__inner">
-              <Product v-for="item, key in products" :key="item.id" :data="item" />
+              <Product v-for="item, key in products" :key="item.id" :data="item"/>
             </div>
           </div>
           <!-- .products -->

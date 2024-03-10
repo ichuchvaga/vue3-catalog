@@ -26,6 +26,11 @@ export default {
       return new URL(('../assets/img/' + this.data.img), import.meta.url).href;
     }
   },
+  methods: {
+    addToCart() {
+      this.$emit("addToCart", this.data.id);
+    }
+  },
   components: {
     IconCamera,
     IconFavorite,
@@ -70,7 +75,7 @@ export default {
       </div>
 
       <div class="product__button">
-        <button type="button" class="btn btn--xs">В корзину</button>
+        <button type="button" class="btn btn--xs" @click="addToCart">В корзину</button>
         <button type="button" class="btn btn--accent btn--xs" v-if="false">В корзине</button>
       </div>
       
