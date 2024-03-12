@@ -17,6 +17,7 @@
     line-height: 0;
 
     img {
+      width: 100%;
       border-radius: 16px 16px 0 0;
     }
   }
@@ -214,6 +215,19 @@
     svg {
       fill: #279FB9;
       stroke: #279FB9;
+    }
+  }
+}
+
+.products-grid {
+  &__inner {
+    margin-left: -16px;
+    margin-right: -16px;
+  }
+
+  &--small {
+    .product {
+      width: 20%;
     }
   }
 }

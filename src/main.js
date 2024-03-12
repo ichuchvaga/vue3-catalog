@@ -1,6 +1,9 @@
-import './assets/css/main.scss'
+import './assets/css/main.scss';
 
-import { createApp } from 'vue'
-import App from './App.vue'
+import { createApp } from 'vue';
+import Catalog from './Catalog.vue';
+import store from './store';
 
-createApp(App).mount('#app')
+const app = createApp(Catalog);
+app.use(store);
+app.mount('#app');

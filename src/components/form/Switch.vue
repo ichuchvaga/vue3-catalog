@@ -2,12 +2,20 @@
 export default {
   data() {
     return {
-      checked: true
+
     }
   },
   props: {
+    checked: Boolean,
     name: String,
     text: String
+  },
+  emits: ['update'],
+  methods: {
+    update(e) {
+      const newValue = e.target.checked;
+      this.$emit('update', newValue);
+    }
   }
 }
 </script>
@@ -15,7 +23,12 @@ export default {
 <template>
 <div class="switch">
   <label class="switch__label">
-    <input type="checkbox" :name="name" value="1" :checked="checked">
+    <input 
+      type="checkbox" 
+      value="1" 
+      :checked="checked"
+      @input="update"
+    >
 
     <span class="switch__content">
       <span class="switch__icon"></span>

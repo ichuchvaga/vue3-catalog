@@ -1,9 +1,10 @@
 <script>
+import { mapGetters, mapState } from 'vuex';
+import brands from '../data/brands.js';
+
 import VueMultiselect from 'vue-multiselect';
 import RangeSlider from 'vue-simple-range-slider';
-//import 'vue-simple-range-slider/css';
 import categories from '../data/categories.js';
-import filters from '../data/filters.json';
 import IconFavorite from './icons/IconFavorite.vue';
 import Checkbox from './form/Checkbox.vue';
 import Switch from './form/Switch.vue';
@@ -12,8 +13,6 @@ export default {
   data() {
     return {
       categories,
-      filters,
-      sortedProducts: [],
       priceMin: 321,
       priceMax: 10200,
       priceRangeMin: 321,
@@ -21,27 +20,62 @@ export default {
       priceRangeSliderValue: [321, 10200],
       limit: 160,
       limitOptions: ["25 товаров", "50 товаров", "75 товаров", "100 товаров", "120 товаров", "160 товаров"],
-      showInStock: true
     }
+  },
+  computed: {
+    ...mapState([
+        'filters',
+        'inStockOnly'
+    ])
   },
   watch: {
     priceRangeSliderValue(newValue, oldValue) {
       this.priceMin = newValue[0];
       this.priceMax = newValue[1];
+
+      this.$store.commit('updatePriceFilter', {
+        min: this.priceRangeSliderValue[0],
+        max: this.priceRangeSliderValue[1]
+      });
     },
     priceMin(newValue, oldValue) {
       if (this.priceRangeSliderValue[0] != newValue) {
         this.priceRangeSliderValue[0] = newValue;
-      }
+
+        this.$store.commit('updatePriceFilter', {
+          min: newValue
+        });
+      }      
     },
     priceMax(newValue, oldValue) {
       if (this.priceRangeSliderValue[1] != newValue) {
         this.priceRangeSliderValue[1] = newValue;
+
+        this.$store.commit('updatePriceFilter', {
+          max: newValue
+        });
       }
     },
+    ...mapState(['inStockOnly'])
   },
   methods: {
-
+    addFilter(value) {
+      this.$store.commit('addFilter', value);
+    },
+    removeFilter(value) {
+      this.$store.commit('removeFilter', value);
+    },
+    updateInStock(isChecked) {
+      if (!this.inStockOnly === isChecked) {
+        this.$store.commit('updateInStock', isChecked);
+      }      
+    },
+    resetFilter() {
+      this.$store.commit('resetFilter');
+    },
+    ...mapGetters([
+      'getFilters'
+    ])
   },
   components: {
     IconFavorite,
@@ -49,7 +83,14 @@ export default {
     Switch,
     VueMultiselect,
     RangeSlider
-  }
+  },
+  created() {
+    this.$store.commit('updatePriceFilter', {
+      min: this.priceRangeSliderValue[0],
+      max: this.priceRangeSliderValue[1]
+    });
+    this.$store.commit('initFilters');
+  },
 }
 </script>
 
@@ -75,12 +116,26 @@ export default {
 
     <!-- other filters -->
     <div class="filter-group" v-for="f in filters">
-      <div class="filter-group__title">{{ f.name }}</div>
+      <div class="filter-group__title">{{ f.title }}</div>
 
       <div class="filter-group__content">
         <div class="filter-group__content-in">
           <div class="checkboxes">
-            <Checkbox v-for="item in f.items" :data="item" :name="f.inputName"/>
+            <Checkbox 
+              v-for="item in f.items" 
+              :data="item"
+              :name="f.name"
+
+              @checked="addFilter({
+                name: f.name,
+                value: item.title
+              })"
+
+              @unchecked="removeFilter({
+                name: f.name,
+                value: item.title
+              })"
+            />
           </div>
         </div>
       </div>
@@ -128,7 +183,7 @@ export default {
 
     <!-- stock -->
     <div class="sidebar-item in-stock-switch">
-      <Switch :name="'inStock'" :text="'Только товары в наличии'" />
+      <Switch :text="'Только товары в наличии'" :checked="inStockOnly" @update="updateInStock" />
     </div>
     <!-- .stock -->
 
@@ -154,7 +209,11 @@ export default {
 
     <!-- reset -->
     <div class="sidebar-item filter-reset">
-      <button type="button" class="btn btn--outline btn--sm filter-reset__btn">Сбросить</button>
+      <button 
+        type="button" 
+        class="btn btn--outline btn--sm filter-reset__btn"
+        @click.prevent="resetFilter"
+      >Сбросить</button>
     </div>
     <!-- .reset -->
 

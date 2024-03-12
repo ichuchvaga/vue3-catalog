@@ -11,10 +11,10 @@
   "id": "1"
 },{
   "img": "product-1.jpg",
-  "price": "2499",
+  "price": "2199",
   "name": "Сборная модель Экскаватор UDS-114 Tatra",
   "scale": "1:43",
-  "brand": "AVD Models",
+  "brand": "Snake Model",
   "rating": "3.5",
   "reviews": "12",
   "inStock": true,
@@ -27,7 +27,7 @@
   "brand": "AVD Models",
   "rating": "3.5",
   "reviews": "12",
-  "inStock": true,
+  "inStock": false,
   "id": "3"
 },{
   "img": "product-3.jpg",

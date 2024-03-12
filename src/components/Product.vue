@@ -11,7 +11,7 @@ export default {
   },
   data() {
     return {
-      
+      addedToCart: false
     }
   },
   computed: {
@@ -23,12 +23,19 @@ export default {
       return formatter.format(value);
     },
     imgUrl() {
-      return new URL(('../assets/img/' + this.data.img), import.meta.url).href;
+      if (this.isSmall) {
+        return new URL(('../assets/img/' + this.data.imgSmall), import.meta.url).href;
+      } else {        
+        return new URL(('../assets/img/' + this.data.img), import.meta.url).href;
+      }      
+    },
+    isSmall() {
+      return this.$store.state.listingView == 'small';
     }
   },
   methods: {
     addToCart() {
-      this.$emit("addToCart", this.data.id);
+      this.addedToCart = true;
     }
   },
   components: {
@@ -51,9 +58,9 @@ export default {
         <button type="button" class="favorite-icon"><IconFavorite/></button>
       </div>
       <div class="product__badges">
-        <div class="badge badge--new">NEW</div>
-        <div class="badge badge--sale">SALE</div>
-        <a href="#" class="badge badge--camera" @click.prevent>
+        <div class="badge badge--new" v-if="data.new">NEW</div>
+        <div class="badge badge--sale" v-if="data.discount > 0">SALE</div>
+        <a href="#" class="badge badge--camera" @click.prevent v-if="data.video">
           <IconCamera />
         </a>
       </div>
@@ -69,14 +76,14 @@ export default {
 
       <div class="product__reviews">
         <div class="product__rating">
-          <RatingStars value="3.5" />
+          <RatingStars :value="data.rating" />
         </div>
         <div class="product__reviews-count">{{ data.reviews }} отзывов</div>
       </div>
 
       <div class="product__button">
-        <button type="button" class="btn btn--xs" @click="addToCart">В корзину</button>
-        <button type="button" class="btn btn--accent btn--xs" v-if="false">В корзине</button>
+        <button type="button" class="btn btn--xs" @click="addToCart" @click.prevent="addToCard" v-if="!addedToCart">В корзину</button>
+        <button type="button" class="btn btn--accent btn--xs" @click.prevent v-if="addedToCart">В корзине</button>
       </div>
       
     </div>

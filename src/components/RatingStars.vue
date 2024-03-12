@@ -11,7 +11,7 @@ export default {
     }
   },
   props: {
-    value: String
+    value: Number
   },
   components: {
     IconRatingStar

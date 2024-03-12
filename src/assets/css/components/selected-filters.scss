@@ -1,6 +1,7 @@
 .selected-filters {
   &__inner {
     display: flex;
+    flex-wrap: wrap;
     margin-left: -4px;
     margin-right: -4px;
   }

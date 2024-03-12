@@ -1,11 +1,14 @@
 [{
-  "name": "Производитель",
-  "active": "Advanced Modeling",
-  "inputName": "brand[]",
+  "title": "Производитель",
+  "name": "brand",
   "items": [
     {
-      "title": "AVD",
+      "title": "AVD Models",
       "count": "124"
+    },
+    {
+      "title": "Snake Model",
+      "count": "97"      
     },
     {
       "title": "Advanced Modeling",
@@ -37,9 +40,8 @@
     } 
   ]
 },{
-  "name": "Масштаб",
-  "active": "1:6",
-  "inputName": "scale[]",
+  "title": "Масштаб",
+  "name": "scale",
   "items": [
     {
       "title": "1:24",

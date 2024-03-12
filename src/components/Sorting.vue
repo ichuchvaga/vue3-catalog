@@ -1,4 +1,7 @@
 <script>
+import { mapState } from 'vuex';
+import sortByOptions from '../data/sortOptions.js';
+
 import IconSortDirArrow from './icons/IconSortDirArrow.vue';
 import IconViewDefault from './icons/IconViewDefault.vue';
 import IconViewBig from './icons/IconViewBig.vue';
@@ -6,49 +9,34 @@ import IconViewBig from './icons/IconViewBig.vue';
 export default {
   data() {
     return {
-      sortBy: [
-        {
-          name: 'popularity',
-          caption: 'Популярности' 
-        },
-        {
-          name: 'rating',
-          caption: 'Рейтингу' 
-        },
-        {
-          name: 'price',
-          caption: 'Цене' 
-        },
-        {
-          name: 'discount',
-          caption: 'Скидке' 
-        },
-        {
-          name: 'update',
-          caption: 'Обновлению' 
-        }
-      ],
-      sortDir: 'ASC',
-      active: 'price',
-      view: 'big'
+      sortByOptions,
+      view: 'default'
     }
   },
   methods: {
     updateSort(param) {
-      if (this.active == param) {
+      if (this.sortBy == param) {
         this.updateSortDir();
       } else {
-        this.active = param;
+        this.$store.commit('updateSortField', param);
       }
     },
     updateSortDir() {
-      this.sortDir = (this.sortDir == 'ASC') ? 'DESC' : 'ASC';
+      const newValue = (this.sortDir == 'ASC') ? 'DESC' : 'ASC'; 
+      this.$store.commit('updateSortDir', newValue);
     },
     updateView(value) {
       if (this.view != value) {
         this.view = value;
+        this.$store.commit('updateView', value);
       }
     }
+  },
+  computed: {
+    ...mapState([
+        'sortBy',
+        'sortDir'
+    ])
   },
   components: {
     IconSortDirArrow,
@@ -64,9 +52,9 @@ export default {
     <div class="sorting__caption">Сортировать по:</div>
 
     <div class="sorting__items">
-      <div class="sorting__item" v-for="item in sortBy">
-        <a href="#" class="sorting__link" :data-value="item.name" :class="{active: item.name == active}" @click.prevent="updateSort(item.name)">{{ item.caption }}
-          <span class="sort-dir" v-show="item.name == active" :class="{desc: sortDir == 'DESC'}">
+      <div class="sorting__item" v-for="item in sortByOptions">
+        <a href="#" class="sorting__link" :data-value="item.name" :class="{active: item.name == sortBy}" @click.prevent="updateSort(item.name)">{{ item.caption }}
+          <span class="sort-dir" v-show="item.name == sortBy" :class="{desc: sortDir == 'DESC'}">
             <IconSortDirArrow />
           </span>
         </a>
@@ -75,11 +63,11 @@ export default {
   </div>
 
   <div class="view">
-    <a href="#" class="view-link" @click.prevent="updateView('default')" :class="{active: view == 'default'}">
+    <a href="#" class="view-link" @click.prevent="updateView('small')" :class="{active: view == 'small'}">
       <IconViewDefault />
     </a>
 
-    <a href="#" class="view-link" @click.prevent="updateView('big')" :class="{active: view == 'big'}">
+    <a href="#" class="view-link" @click.prevent="updateView('default')" :class="{active: view == 'default'}">
       <IconViewBig />
     </a>
   </div>
