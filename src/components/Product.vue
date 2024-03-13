@@ -11,7 +11,8 @@ export default {
   },
   data() {
     return {
-      addedToCart: false
+      addedToCart: false,
+      isFavorite: false
     }
   },
   computed: {
@@ -36,6 +37,9 @@ export default {
   methods: {
     addToCart() {
       this.addedToCart = true;
+    },
+    addToFavorites() {
+      this.isFavorite = true;
     }
   },
   components: {
@@ -55,7 +59,12 @@ export default {
         <a href="#" class="btn btn--xxs" @click.prevent>Быстрый просмотр</a>
       </div>
       <div class="product__favorite">
-        <button type="button" class="favorite-icon"><IconFavorite/></button>
+        <button 
+          type="button" 
+          class="favorite-icon"
+          :class="{'active': isFavorite}" 
+          @click.prevent="addToFavorites"
+        ><IconFavorite/></button>
       </div>
       <div class="product__badges">
         <div class="badge badge--new" v-if="data.new">NEW</div>
