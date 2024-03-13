@@ -116,11 +116,11 @@
         return filteredResult;
       },
       sortedProducts() {
-        let sortedProducts = this.filteredProducts.map(product => product);
+        let filteredProducts = this.filteredProducts.map(product => product);
        
         let sortedArray = [];
-        sortedArray = sortedProducts.sort(sort[this.getSortState.sortBy][this.getSortState.sortDir]);
-        return (sortedArray.length) ? sortedArray : this.filteredProducts;
+        sortedArray = filteredProducts.sort(sort[this.getSortState.sortBy][this.getSortState.sortDir]);
+        return (sortedArray.length) ? sortedArray : filteredProducts;
       },
       productsCount() {
         return this.sortedProducts.length;
