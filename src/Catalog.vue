@@ -154,7 +154,7 @@
 
       <div class="page-heading">
         <h1>Каталог</h1>
-        <div class="page-heading__count">{{ productsCount }} товара</div>
+        <div class="page-heading__count">{{ productsCount }} товаров</div>
       </div>
 
       <div class="base-layout">

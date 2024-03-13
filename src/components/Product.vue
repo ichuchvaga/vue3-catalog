@@ -38,8 +38,8 @@ export default {
     addToCart() {
       this.addedToCart = true;
     },
-    addToFavorites() {
-      this.isFavorite = true;
+    toggleFavorite() {
+      this.isFavorite = !this.isFavorite;
     }
   },
   components: {
@@ -63,7 +63,7 @@ export default {
           type="button" 
           class="favorite-icon"
           :class="{'active': isFavorite}" 
-          @click.prevent="addToFavorites"
+          @click.prevent="toggleFavorite"
         ><IconFavorite/></button>
       </div>
       <div class="product__badges">
