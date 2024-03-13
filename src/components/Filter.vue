@@ -18,7 +18,7 @@ export default {
       priceRangeMin: 321,
       priceRangeMax: 10200,
       priceRangeSliderValue: [321, 10200],
-      limit: 160,
+      limit: "25 товаров",
       limitOptions: ["25 товаров", "50 товаров", "75 товаров", "100 товаров", "120 товаров", "160 товаров"],
     }
   },
@@ -200,7 +200,7 @@ export default {
           :close-on-select="true"
           :allow-empty="false"
           placeholder="Select one"
-          @update:model-value="newValue => limit = parseInt(newValue)"
+          @update:model-value="newValue => { limit = parseInt(newValue); this.$store.commit('updateLimit', parseInt(newValue))}"
         />
 
       </div>
@@ -230,98 +230,8 @@ export default {
 </div>
 </template>
 
-<style lang="scss">
-.sidebar {
-  width: 240px;
-  background-color: #fff;
-  border-radius: 16px;
-  flex-shrink: 0;
-  padding: 16px 16px 16px;
-  
-  .filter-reset {
-    .btn {
-      width: 100%;
-    }    
+<style>
+ .multiselect__select::before {
+    background: url("/src/assets/img/select-arrow.svg") no-repeat 0 0;
   }
-}
-
-.sidebar-nav {
-  display: block;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  font-size: 14px;
-  line-height: 20px;
-  font-weight: 400;
-
-  &__item {
-    padding: 8px 0;
-  }
-
-  &__link {
-    text-decoration: none;
-    color: #333;
-    transition: all .25s ease;
-
-    &:hover,
-    &.active {
-      text-decoration: none;
-      color: #39B6D1;      
-    }
-  }
-}
-
-.filter-group {
-  &__title {
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 24px;
-  }
-}
-
-.sidebar-item {
-  margin-bottom: 16px;
-
-  &:last-child {
-    margin-bottom: 0;
-  }
-}
-
-.filter-save-selection {
-  margin-top: 25px;
-
-  &__link {
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    text-decoration: none;
-    color: #333;
-    font-size: 14px;
-    line-height: 20px;
-    transition: all .25s ease;
-
-    &-text {
-      font-weight: 500;
-    }
-
-    svg {
-      fill: #fff;
-      stroke: #333;
-      width: 16px;
-      height: 16px;
-      margin-top: 1px;
-      margin-left: 10px;
-      transition: all .25s ease;
-    }
-
-    &:hover {
-      color: #279FB9;
-      text-decoration: none;
-
-      svg {
-        stroke: #279FB9;
-      }
-    }
-  }
-}
 </style>

@@ -4,13 +4,24 @@ import products from '../data/products_randomized.json';
 
 export default createStore({
   state () {
+    const initPrices = () => {
+      const prices = [];
+      products.map(p => {
+        prices.push(p.price);
+      });
+      
+      return {
+        min: Math.min.apply(null, prices),
+        max: Math.max.apply(null, prices)
+      }
+    };
+
     return {
-      selectedPrice: {
-        min: 321,
-        max: 10200
-      },
+      initPrice: initPrices(),
+      selectedPrice: initPrices(),
       selectedFilters: [],
       filters: filters,
+      limit: 25,
       sortBy: 'popularity',
       sortDir: 'ASC',
       inStockOnly: false,
@@ -149,21 +160,9 @@ export default createStore({
     },
     updateView(state, value) {
       state.listingView = value;
+    },
+    updateLimit(state, value) {
+      state.limit = value;
     }
   }
-})
-
-
-// function getMinMax() {
-//   let minValue = 0,
-//   let maxValue = 0;
-//   let prices = [];
-//   products.map(product => {
-//     prices.push(parseFloat(product.price));
-//   });
-//   console.log(prices);
-//   return {
-//     min: '',
-//     max: ''
-//   }
-// }
+});

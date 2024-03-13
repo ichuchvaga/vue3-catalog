@@ -88,22 +88,8 @@
     z-index: 50;
   }
 
-  .multiselect--active:not(.multiselect--above) .multiselect__current,
-  .multiselect--active:not(.multiselect--above) .multiselect__input,
-  .multiselect--active:not(.multiselect--above) .multiselect__tags {
-    /*border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;*/
-  }
-
   .multiselect--active .multiselect__select {
     transform: rotateZ(180deg);
-  }
-
-  .multiselect--above.multiselect--active .multiselect__current,
-  .multiselect--above.multiselect--active .multiselect__input,
-  .multiselect--above.multiselect--active .multiselect__tags {
-    /*border-top-left-radius: 0;
-    border-top-right-radius: 0;*/
   }
 
   .multiselect--active {
@@ -213,12 +199,6 @@
     font-size: 14px;
   }
 
-  /* // Remove these lines to avoid green closing button
-  //.multiselect__tag-icon:focus,
-  //.multiselect__tag-icon:hover {
-  //  background: #369a6e;
-  //} */
-
   .multiselect__tag-icon:focus::after,
   .multiselect__tag-icon:hover::after {
     color: white;
@@ -258,17 +238,9 @@
   }
 
   .multiselect__select::before {
-    /*position: relative;
-    right: 0;
-    top: 65%;
-    color: #999;
-    margin-top: 4px;
-    border-style: solid;
-    border-width: 5px 5px 0 5px;
-    border-color: #999 transparent transparent transparent;*/
     content: "";
     display: block;
-    background: url("../img/select-arrow.svg") no-repeat 0 0;
+    background: url("/src/assets/img/select-arrow.svg") no-repeat 0 0;
     background-size: contain;
     width: 16px;
     height: 9px;
@@ -298,10 +270,6 @@
     border: none;
     border-radius: 8px;
     box-shadow: 1px 1px 15px 0px rgba(0, 0, 0, 0.1);
-    /*border: 1px solid #e8e8e8;
-    border-top: none;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;*/
     z-index: 50;
     -webkit-overflow-scrolling: touch;
     margin-top: 4px;
@@ -319,11 +287,6 @@
   .multiselect--above .multiselect__content-wrapper {
     bottom: 100%;
     margin-bottom: 4px;
-    /*border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;*/
-    /*border-top: 1px solid #e8e8e8;*/
   }
 
   .multiselect__content::-webkit-scrollbar {
@@ -336,7 +299,6 @@
 
   .multiselect__option {
     display: block;
-    /*padding: 10px 8px;*/
     padding: 10px 16px;
     min-height: 40px;
     font-size: 14px;

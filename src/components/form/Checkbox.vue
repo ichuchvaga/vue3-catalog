@@ -42,7 +42,7 @@ export default {
       <span class="checkbox__icon">
         <IconCheck />
       </span>
-      <span class="checkbox__text">{{ data.title }}</span>
+      <span class="checkbox__text">{{ data.title }} <span class="checkbox__count">423</span></span>
     </span>
   </label>
 </div>

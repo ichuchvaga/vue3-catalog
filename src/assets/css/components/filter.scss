@@ -1,0 +1,60 @@
+.filter-group {
+  margin-bottom: 15px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &__title {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 8px;
+  }
+}
+
+.sidebar-item {
+  margin-bottom: 16px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.filter-save-selection {
+  margin-top: 25px;
+
+  &__link {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+    line-height: 20px;
+    transition: all .25s ease;
+
+    &-text {
+      font-weight: 500;
+    }
+
+    svg {
+      fill: #fff;
+      stroke: #333;
+      width: 16px;
+      height: 16px;
+      margin-top: 1px;
+      margin-left: 10px;
+      transition: all .25s ease;
+    }
+
+    &:hover {
+      color: #279FB9;
+      text-decoration: none;
+
+      svg {
+        stroke: #279FB9;
+      }
+    }
+  }
+}

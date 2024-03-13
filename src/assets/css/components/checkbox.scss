@@ -37,6 +37,14 @@
     }
   }
 
+  &__count {
+    font-size: 12px;
+    line-height: 16px;
+    color :#BDBDBD;
+    display: inline-block;
+    margin-left: 6px;
+  }
+
   label:hover {
     .checkbox__icon {
       border-color: #333333;

@@ -26,7 +26,8 @@
           "Porsche 959"
         ],
         brands: brands,
-        scales: scales
+        scales: scales,
+        limit: "25 товаров"
       }
     },
     computed: {

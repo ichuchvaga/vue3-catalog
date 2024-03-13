@@ -9,6 +9,7 @@
 @import "./components/dropdown.scss";
 @import "./components/vue-simple-range-slider.scss";
 @import "./components/range.scss";
+@import "./components/filter.scss";
 
 .page {
   padding: 32px 0 0;
@@ -36,6 +37,7 @@
   display: flex;
   width: 100%;
   align-items: flex-start;
+  padding-bottom: 32px;
 }
 
 .main {
@@ -68,5 +70,45 @@
   &__inner {
     display: flex;
     flex-wrap: wrap;
+  }
+}
+
+.sidebar {
+  width: 240px;
+  background-color: #fff;
+  border-radius: 16px;
+  flex-shrink: 0;
+  padding: 16px 16px 16px;
+  
+  .filter-reset {
+    .btn {
+      width: 100%;
+    }    
+  }
+}
+
+.sidebar-nav {
+  display: block;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+
+  &__item {
+    padding: 8px 0;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: #333;
+    transition: all .25s ease;
+
+    &:hover,
+    &.active {
+      text-decoration: none;
+      color: #39B6D1;      
+    }
   }
 }
